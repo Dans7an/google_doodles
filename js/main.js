@@ -5,11 +5,11 @@ const title = ['T', 'o', 'd', 'a', 'y', ' ', 'i', 'n', ' ', 'G', 'o', 'o', 'g', 
 let newDate;
 let current = new Date();
 
-
 let defaultDate = document.querySelector('.currentDate')
 defaultDate.addEventListener('mouseover', editDate)
+
+// Hides input and displays carets
 document.querySelector('body').addEventListener('click', restoreDate)
-// document.querySelector('body').addEventListener('mouseout', restoreDate)
 
 // move a date back
 document.querySelector('#moveBack').addEventListener('click', moveBack)
@@ -17,9 +17,15 @@ document.querySelector('#moveBack').addEventListener('click', moveBack)
 // move a date foward
 document.querySelector('#moveForward').addEventListener('click', moveForward)
 
-// change colors on hover
-// document.querySelectorAll('.btn-primary').addEventListener('mouseover', changeColors)
 
+// Changes colors of carets
+let backCaret = document.querySelector('#moveBack')
+backCaret.addEventListener('mouseover', colorForBack)
+
+let forwardCaret = document.querySelector('#moveForward')
+forwardCaret.addEventListener('mouseover', colorForward)
+
+// methods invoked when app starts
 createTitle()
 displayDate(current)
 iterateOlderYears()
@@ -48,15 +54,6 @@ async function iterateOlderYears(){
                     console.log(element)
                     createCard(element)
             })
-//         fetch(`https://google-doodles.herokuapp.com/doodles/${year}/${currentMonth}?hl=en`)
-// .then(res => res.json())
-// .then(data => {
-//     let desiredDoodles = filterByDay(data, currentDay)
-//     desiredDoodles.forEach(element => {
-//         console.log(element)
-//         createCard(element)
-//     });
-// })
     }
 }
 
@@ -83,6 +80,9 @@ function displayDate(dateParam){
 function editDate(){
     document.querySelector('.defaultDate').classList.add('hide')
     document.querySelector('#changeDate').classList.remove('hide')
+    // Changes colors of input and button
+    document.querySelector('#newDateInput').style.backgroundColor = generateRandomColors()
+    document.querySelector('#getDoodles').style.backgroundColor = generateRandomColors()
 }
 
 function restoreDate(){
@@ -129,6 +129,14 @@ function reloadPage(){
     document.querySelector('.row').remove();
     displayDate(newDate)
     iterateOlderYears()
+}
+
+function colorForBack(){
+    backCaret.style.backgroundColor = generateRandomColors()
+}
+
+function colorForward(){
+    forwardCaret.style.backgroundColor = generateRandomColors()
 }
 
 function createCard(data){   
@@ -183,8 +191,8 @@ cardBody.append(cardTtile)
 cardBody.append(cardText)
 cardBody.append(cardLink)
 
+// change colors on hover
 let changeColor = document.getElementsByClassName('btn-primary');
-
 // Change color
 Array.from(changeColor).forEach(function(element) {
     element.addEventListener('mouseover', function(){
@@ -197,7 +205,6 @@ function getTodaysDate(currentDate){
     let dateObj;
     if(newDate == undefined){
         console.log("inactive ", newDate);
-        // let date = new Date()
         dateObj = {
             day : currentDate.getDate(),
             month : currentDate.getMonth() + 1,
@@ -223,6 +230,7 @@ function generateRandomColors(){
     return colors[randomIndex]
 }
 
+// Validate the date entered if its MM/DD/YYYY
 function validateDate(date){
     let hasNoLetters = date.split('/').every(num => num > 0)
 

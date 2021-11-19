@@ -6,28 +6,11 @@ h1{
     font-family: 'Sedgwick Ave Display', cursive;
     font-size: 5rem;
     margin: 2rem 0;
-    /* letter-spacing: -10px; */
 }
 
 h4{
     font-size: 2rem;
 }
-
-.red{
-    color: #ea4335;
-}
-
-.green{
-    color: #34a853;
- }
- 
- .blue{
-     color: #4285f4;
- }
- 
- .yellow{
-     color: #fbbc05;
- }
 
  .btn-primary{
      color: white;
