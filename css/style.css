@@ -1,0 +1,94 @@
+body{
+    text-align: center;
+}
+
+h1{
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 5rem;
+    margin: 2rem 0;
+    /* letter-spacing: -10px; */
+}
+
+h4{
+    font-size: 2rem;
+}
+
+.red{
+    color: #ea4335;
+}
+
+.green{
+    color: #34a853;
+ }
+ 
+ .blue{
+     color: #4285f4;
+ }
+ 
+ .yellow{
+     color: #fbbc05;
+ }
+
+ .btn-primary{
+     color: white;
+     width: 100%;
+ }
+
+ .yellowBackground{
+     background-color: #fbbc05;
+ }
+
+ .greenBackground{
+     background-color: #34a853;
+ }
+
+ .redBackground{
+    background-color: #ea4335;
+}
+
+.blueBackground{
+    background-color: #4285f4;
+}
+
+.dateSection{
+    margin-bottom: 2rem;
+}
+
+ .back > button,
+ .forward > button{
+    border-radius: 50%;
+    color: white;
+    border: none;
+ }
+
+ .currentDate,
+ .back,
+ .forward{
+     font-size: 2rem;
+     display: inline-flex;
+     font-family: 'Sedgwick Ave Display', cursive;
+ }
+
+ #newDateInput{
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 1.2rem;
+    margin-left: 25px;
+    color: white;
+    text-align: center;
+ }
+
+ .btn-warning {
+    color: white;
+ }
+
+ .hide {
+    display: none;
+  }
+
+img{
+    height: 150px;
+}
+
+.card{
+    margin-bottom: 5px;
+}
